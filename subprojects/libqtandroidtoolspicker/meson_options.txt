@@ -1,0 +1,18 @@
+option(
+  'bundle_translations',
+  type: 'boolean',
+  value: false,
+  description: 'Bundle translation files into the executable instead of ' +
+    'installing them'
+)
+
+option(
+  'translationdir',
+  type: 'string',
+  description: 'Directory into which .qm Qt compiled translations will be ' +
+    'put. Ignored if \'bundle_translations\' is true. If relative, the path ' +
+    'is assumed to be relative to prefix. If unset, default is ' +
+    '\'bundle_translations/translations/\' relative to datadir (beware! ' +
+    'default value is relative to datadir, whereas overriden values are ' +
+    'relative to prefix!)'
+)
