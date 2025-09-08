@@ -5,11 +5,11 @@ qt6 = import('qt6')
 qt6dep = dependency('qt6', modules: ['Core', 'Widgets'])
 
 ui_files = [
-  'src/mainwindow.ui'
+  'src/mainwindow.ui',
 ]
 
 moc_headers = [
-  'include/mainwindow.hpp'
+  'include/mainwindow.hpp',
 ]
 
 ui = qt6.compile_ui(sources: ui_files)
