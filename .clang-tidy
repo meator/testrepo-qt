@@ -1,0 +1,99 @@
+Checks: >
+  bugprone-*, performance-*, readability-*,
+  modernize-*, clang-analyzer-*,
+  -modernize-use-trailing-return-type,
+
+  -readability-named-parameter,
+  -readability-redundant-access-specifiers
+# readability-named-parameter: Unnamed parameters are useful (such as std::in_place_t)
+# readability-redundant-access-specifiers: private: and private slots: are technically
+#     identical, but they serve different meanings.
+HeaderFilterRegex: '.*'
+FormatStyle: file
+# Some of these may be redundant.
+# See https://clang.llvm.org/extra/clang-tidy/checks/readability/identifier-naming.html
+CheckOptions:
+  - key: readability-braces-around-statements.ShortStatementLines
+    value: '3'
+  - key: readability-identifier-length.IgnoredParameterNames
+    # The 'in' parameter can be useful. 'n' is the default enabled value.
+    value: '^i?n$'
+
+# Naming conventions (may be subject to change):
+## Class-like things get CamelCase (similar to Python)
+  - key: readability-identifier-naming.ClassCase
+    value: 'CamelCase'
+  - key: readability-identifier-naming.StructCase
+    value: 'CamelCase'
+  - key: readability-identifier-naming.EnumCase
+    value: 'CamelCase'
+  - key: readability-identifier-naming.NamespaceCase
+    value: 'CamelCase'
+    # Ignore abi inline namespaces and the 'detail' namespace, which has
+    # special meaning.
+  - key: readability-identifier-naming.NamespaceIgnoredRegexp
+    value: '^abi_v[0-9]+$|^detail$'
+
+## Enum
+  - key: readability-identifier-naming.ScopedEnumConstantCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.EnumConstantCase
+    value: 'UPPER_CASE'
+
+## Class members get lower_case
+  - key: readability-identifier-naming.ClassConstantCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.ClassMemberCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.ClassMethodCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.ConstexprMethodCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.MemberCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.PrivateMemberCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.ProtectedMemberCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.PublicMemberCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.MethodCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.PrivateMethodCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.ProtectedMethodCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.PublicMethodCase
+    value: 'lower_case'
+
+## Functions get lower_case
+  - key: readability-identifier-naming.ConstexprFunctionCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.FunctionCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.GlobalFunctionCase
+    value: 'lower_case'
+
+## Variables get lower_case
+  - key: readability-identifier-naming.GlobalConstantCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.GlobalPointerCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.GlobalVariableCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.VariableCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.LocalConstantCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.LocalConstantPointerCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.LocalPointerCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.StaticConstantCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.StaticVariableCase
+    value: 'lower_case'
+
+## Macros get UPPER_CASE
+  - key: readability-identifier-naming.MacroDefinitionCase
+    value: 'UPPER_CASE'
