@@ -38,7 +38,13 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="image">
+         <widget class="ResizeableLabel" name="image">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="text">
            <string notr="true">Image placeholder loaded in mainwindow.cpp</string>
           </property>
@@ -69,6 +75,13 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ResizeableLabel</class>
+   <extends>QLabel</extends>
+   <header>CustomWidgets.hpp</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

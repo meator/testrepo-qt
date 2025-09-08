@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget * parent)
 	QPixmap pixmap(":/images/Qt_logostrap_CMYK.jpg", "JPG");
 	Q_ASSERT(!pixmap.isNull());
 	ui->image->setPixmap(pixmap);
+	ui->image->set_original_pixmap(pixmap);
 }
 
 MainWindow::~MainWindow()

@@ -10,6 +10,7 @@ ui_files = [
 
 moc_headers = [
   'include/mainwindow.hpp',
+  'include/CustomWidgets.hpp',
 ]
 
 ui = qt6.compile_ui(sources: ui_files)
@@ -23,6 +24,7 @@ executable(
   'test-pixmap-scaling',
   'src/main.cpp',
   'src/mainwindow.cpp',
+  'src/CustomWidgets.cpp',
   ui,
   res,
   moc,
